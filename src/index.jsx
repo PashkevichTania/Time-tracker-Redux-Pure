@@ -4,9 +4,9 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {GlobalStyles} from 'styles/global';
-import App from './components/App';
-import reportWebVitals from './reportWebVitals';
-import rootReducer from "./redux/rootReducer";
+import App from 'components/App';
+import reportWebVitals from 'reportWebVitals';
+import rootReducer from "redux/rootReducer";
 
 const store = createStore(
     rootReducer,

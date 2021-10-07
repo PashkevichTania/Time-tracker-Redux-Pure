@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { Wrapper } from './styled';
-import { getUsersAPI } from 'services/home/index';
+import { getUsersAPI } from 'services/home';
 import NavigationTabs from 'components/home/NavigationTabs/index';
 import TrackPopup from 'components/home/TrackPopup/index';
 import TableInfo from 'components/home/TableInfo/index';
-import { useLocalStorage } from 'hooks/SHARED/index';
-import { Header } from 'styles/SHARED/index';
+import { useLocalStorage } from 'hooks/SHARED';
+import { Header } from 'styles/SHARED';
 import InfoPopup from 'components/SHARED/InfoPopup/index';
 import {useDispatch, useSelector} from "react-redux";
-import {popupMessageOpenedSelector, popupOpenedSelector} from "../../redux/selectors";
-import {setIsMessagePopupOpened, setUsers} from "../../redux/actions";
+import {popupMessageOpenedSelector, popupOpenedSelector} from "redux/selectors";
+import {setIsMessagePopupOpened, setUsers} from "redux/actions";
 
 export default function Home() {
   const dispatch = useDispatch();

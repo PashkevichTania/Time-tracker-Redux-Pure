@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import UsersDropdown from '../UsersDropdown/index';
+import UsersDropdown from 'components/home/UsersDropdown/index';
 import { Tab, Wrapper } from './styled';
 import {useDispatch} from "react-redux";
-import {isTracked} from "../../../redux/actions";
+import {isTracked} from "redux/actions";
 
 export default function NavigationTabs() {
     const dispatch = useDispatch();

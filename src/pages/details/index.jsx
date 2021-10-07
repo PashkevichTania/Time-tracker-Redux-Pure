@@ -1,7 +1,7 @@
-import { useQuery } from 'hooks/details/index';
-import { useLocalStorage } from 'hooks/SHARED/index';
+import { useQuery } from 'hooks/details';
+import { useLocalStorage } from 'hooks/SHARED';
 import { Link } from 'react-router-dom';
-import { Header } from 'styles/SHARED/index';
+import { Header } from 'styles/SHARED';
 import { RecordKey, Title, Wrapper } from './styled';
 
 export default function Details() {

@@ -1,4 +1,4 @@
-import { useLocalStorage } from 'hooks/SHARED/index';
+import { useLocalStorage } from 'hooks/SHARED';
 import { useState } from 'react';
 import {
   Body,
@@ -10,8 +10,8 @@ import {
   Wrapper,
 } from './styled';
 import {useDispatch, useSelector} from "react-redux";
-import {currentUserSelector} from "../../../redux/selectors";
-import {setIsPopupOpened, updateUser} from "../../../redux/actions";
+import {currentUserSelector} from "redux/selectors";
+import {setIsPopupOpened, updateUser} from "redux/actions";
 
 export default function TrackPopup() {
   const dispatch = useDispatch();

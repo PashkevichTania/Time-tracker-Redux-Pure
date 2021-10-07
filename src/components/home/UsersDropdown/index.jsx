@@ -1,7 +1,7 @@
 import { Select } from './styled';
 import {useDispatch, useSelector} from "react-redux";
 import {usersSelector} from "../../../redux/selectors";
-import {currentUser, setIsPopupOpened} from "../../../redux/actions";
+import {currentUser, setIsPopupOpened} from "redux/actions";
 
 export default function UsersDropdown() {
   const dispatch = useDispatch();

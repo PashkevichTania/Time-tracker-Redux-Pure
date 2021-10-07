@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Wrapper, Table, HeadCell, BodyCell, Row } from './styled';
 import {useSelector} from "react-redux";
-import {isTrackedSelector, usersSelector} from "../../../redux/selectors";
+import {isTrackedSelector, usersSelector} from "redux/selectors";
 
 export default function TableInfo() {
 
