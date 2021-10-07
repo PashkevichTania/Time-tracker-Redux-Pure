@@ -1,1 +1,1 @@
-# Time tracker app
+# Time tracker app with Redux
