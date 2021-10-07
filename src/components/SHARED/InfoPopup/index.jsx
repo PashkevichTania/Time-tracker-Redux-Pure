@@ -1,11 +1,12 @@
-import { useIsMessagePopupOpenedCTX } from 'context/GlobalContext';
 import { Body, Button, Footer, Frame, Header, Wrapper } from './styled';
+import {useDispatch} from "react-redux";
+import {setIsMessagePopupOpened} from "../../../redux/actions";
 
 export default function InfoPopup({ message }) {
-  const [, setIsInfoPopupOpened] = useIsMessagePopupOpenedCTX();
+  const dispatch = useDispatch();
 
   const onClosePopupHandler = () => {
-    setIsInfoPopupOpened(false);
+    dispatch(setIsMessagePopupOpened(false));
   };
 
   return (

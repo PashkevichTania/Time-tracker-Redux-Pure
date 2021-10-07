@@ -1,8 +1,3 @@
-import {
-  useCurrentUserCTX,
-  useIsPopupOpenedCTX,
-  useUpdateUserCTX,
-} from 'context/GlobalContext';
 import { useLocalStorage } from 'hooks/SHARED/index';
 import { useState } from 'react';
 import {
@@ -14,14 +9,16 @@ import {
   RecordKey,
   Wrapper,
 } from './styled';
+import {useDispatch, useSelector} from "react-redux";
+import {currentUserSelector} from "../../../redux/selectors";
+import {setIsPopupOpened, updateUser} from "../../../redux/actions";
 
 export default function TrackPopup() {
-  const [, setIsPopupOpened] = useIsPopupOpenedCTX();
-  const [currentUser] = useCurrentUserCTX();
+  const dispatch = useDispatch();
+  const currentUser = useSelector(currentUserSelector)
   const [projectTime, setProjectTime] = useState(currentUser.projectTime);
   const [note, setNote] = useState(currentUser.note);
   const [isTracked, setIsTracked] = useState(currentUser.isTracked);
-  const [setUpdateUser] = useUpdateUserCTX();
   const [localStorageValue, setLocalStorageValue] = useLocalStorage(
     '_TRACK-APP_',
     null
@@ -46,16 +43,15 @@ export default function TrackPopup() {
       note,
       isTracked,
     };
-
-    setUpdateUser(updatedUser);
+    dispatch(updateUser(updatedUser))
     const localStorageUsers = localStorageValue;
     localStorageUsers.splice(currentUser.indexArray, 1, updatedUser);
     setLocalStorageValue(localStorageUsers);
-    setIsPopupOpened(false);
+    dispatch(setIsPopupOpened(false));
   };
 
   return (
-    <Wrapper onClick={() => setIsPopupOpened(false)}>
+    <Wrapper onClick={() => dispatch(setIsPopupOpened(false))}>
       <Frame onClick={e => e.stopPropagation()}>
         <Header>Track User</Header>
 
@@ -98,7 +94,7 @@ export default function TrackPopup() {
         </Body>
 
         <Footer>
-          <Button color="#ffbaba" onClick={() => setIsPopupOpened(false)}>
+          <Button color="#ffbaba" onClick={() => dispatch(setIsPopupOpened(false))}>
             &#10005;
           </Button>
           <Button color="#95dea8" onClick={onSaveClickHandler}>

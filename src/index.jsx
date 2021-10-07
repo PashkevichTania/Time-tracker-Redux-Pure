@@ -1,9 +1,8 @@
 import ReactDOM from 'react-dom';
-import {GlobalContextProvider} from 'context/GlobalContext';
 import {StrictMode} from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import {GlobalStyles} from 'styles/global';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
@@ -17,10 +16,8 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <StrictMode>
-            <GlobalContextProvider>
-                <GlobalStyles/>
-                <App/>
-            </GlobalContextProvider>
+            <GlobalStyles/>
+            <App/>
         </StrictMode>
     </Provider>,
     document.getElementById('root')
