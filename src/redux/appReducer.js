@@ -6,23 +6,19 @@ const initialState = {
 };
 
 const appReducer = (action, state = initialState) => {
-    if (action) {
-        switch (action.type) {
-            case SET_IS_POPUP_OPENED:
-                return {
-                    ...state,
-                    isPopupOpened: action.payload,
-                };
-            case SET_IS_MESSAGE_POPUP_OPENED:
-                return {
-                    ...state,
-                    isInfoPopupOpened: action.payload,
-                };
-            default:
-                return state;
-        }
-    } else {
-        return state;
+    switch (action.type) {
+        case SET_IS_POPUP_OPENED:
+            return {
+                ...state,
+                isPopupOpened: action.payload,
+            };
+        case SET_IS_MESSAGE_POPUP_OPENED:
+            return {
+                ...state,
+                isInfoPopupOpened: action.payload,
+            };
+        default:
+            return state;
     }
 };
 
