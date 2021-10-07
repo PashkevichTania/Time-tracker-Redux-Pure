@@ -1,18 +1,29 @@
 import ReactDOM from 'react-dom';
-import { GlobalContextProvider } from 'context/GlobalContext';
-import { StrictMode } from 'react';
-import { GlobalStyles } from 'styles/global';
+import {GlobalContextProvider} from 'context/GlobalContext';
+import {StrictMode} from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import {GlobalStyles} from 'styles/global';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import rootReducer from "./redux/rootReducer";
+
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(),
+);
 
 ReactDOM.render(
-  <StrictMode>
-    <GlobalContextProvider>
-      <GlobalStyles />
-      <App />
-    </GlobalContextProvider>
-  </StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <StrictMode>
+            <GlobalContextProvider>
+                <GlobalStyles/>
+                <App/>
+            </GlobalContextProvider>
+        </StrictMode>
+    </Provider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
