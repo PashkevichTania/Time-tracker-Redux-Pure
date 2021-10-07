@@ -5,7 +5,8 @@ const initialState = {
     isInfoPopupOpened: false,
 };
 
-const appReducer = (action, state = initialState) => {
+const appReducer = (state = initialState, action) => {
+    console.log(action, state)
     switch (action.type) {
         case SET_IS_POPUP_OPENED:
             return {

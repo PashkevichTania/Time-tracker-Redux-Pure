@@ -13,7 +13,7 @@ const initialState = {
     },
 };
 
-const userReducer = (action, state = initialState) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS:
             return {
